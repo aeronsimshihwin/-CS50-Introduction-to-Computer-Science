@@ -1,0 +1,12 @@
+1.  stdint.h is a header file that contains definitions of new integer types. This will allow my program to have for example a fixed-width integer type int32_t and thus, 32 bits anywhere, since I cannot assure that the actual size of integer in my program is always 32 bits or long long is always 64 bits.
+2.  They are exact-width integer types. uint8_t is a typedef unsigned char, which means it is an unsigned char of 8 bits. uint32_t is a typedef unsigned long int, which means it is an unsigned long integer of 32 bits. int32_t is a typedef signed long int, which means it is a signed long integer of 32 bits. uint16_t is a typedef unsigned int, which means it is an unsigned integer of 16 bits.
+3.  A BYTE is 1 byte, a DWORD is 4 bytes, a LONG is 4 bytes, a WORD is 2 bytes.
+4.  Character "B" then character "M" (in ASCII).
+5.  bfSize is the size of the bitmap file, measured in bytes. biSize is the size of the image, measured in bytes.
+6.  The bitmap will be a top-down device-independent bitmap (DIB) with the origin at the upper left corner.
+7.  biBitCount specifies it.
+8.  In line 24, the input file might be empty. In line 32, since input file is empty, output file will be empty too.
+9.  It is like a pointer, reading 1 item at a time.
+10. 3
+11. It moves the position of a file to another location within the file itself.
+12. It is the current position indicator in the file.
