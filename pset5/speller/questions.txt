@@ -1,0 +1,35 @@
+0.  It is the longest word that is loaded into the dictionary.
+1.  getrusage returns resource usage measures for *int who*, which can be RUSAGE_SELF, RUSAGE_CHILDREN or RUSAGE_THREAD.
+2.  16 members.
+3.  /**If we pass before and after by value, then later part of the code where there's 'calculate',
+     *the entire structure will be taken into calculation. This will result in a waste of time while
+     *loading and waste of memory in the computer.
+    */
+4.  /**The 'for' loop is implemented to iterate over the words in the file opened using fgetc and fp.
+     *Firstly, fp is the text file opened for reading. Then fgetc has a pointer in it, pointing at
+     *an unsigned char from fp and this unsigned char being pointed at will be retrieved. The pointer
+     *will continue to move till it reaches the EOF; end of file. Inside this 'for' loop, there are if,
+     *else if, else and while loops to ensure the flow is logical.
+     *
+     *In speller.c, (1) the code checks if the unsigned char retrieved is an alphabet or apostrophe,
+     *then if it is, the unsigned char will be appended to word[index]. This index will increase by 1
+     *each time each unsigned char is appended.
+     *
+     *(2) Next, if the index is longer than the length, the word is considered too long to be a word
+     *according to the dictionary. As such, the remaining unsigned char of that word will not be appended
+     *to word[index]. Index will start from 0 again while such cases happen and then move on to next word.
+     *
+     *(3) Next, 'else if' loop is used just in case there are digits in the text file. And if there are digits
+     *the remaining unsigned char of that word will not be appended to word[index]. Index will start from 0 again
+     *while such cases happen and then move on to next word.
+     *
+     *(4) Lastly, 'else if' loop is used again for words that have been found. Word[index] will then end with a
+     *NULL terminator to show that that is the end of the word. Number of words will be counted too. The spelling
+     *of these words are then checked using rgetusage and time taken to load is recorded. The mispelt words are then
+     *printed out for user. At the end of this loop, the index needs to return to 0 again to move on to next word.
+    */
+5.  /**fgetc function reads one character by one character until the end of the word and reads the newline character as well.
+     *However, fscanf function ignores the white spaces which is used to separate the word. So, by using fscanf function, will
+     *still require another function to stop at those white spaces.
+6.  Both check and load are pointers that will be passed into function. By using const* char parameter, the pointer and string both
+    cannot be modified. If const* is not used and it is only char* parameter, the pointer cannot be modified but the string pointed to can.
