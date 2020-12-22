@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Settings
+{% endblock %}
+
+{% block main %}
+    <style type="text/css">
+    a { text-decoration : none; color : #000; }
+    .thick
+    {
+    font-weight: bold;
+    }
+    </style>
+    <div class = "form-group">
+        <p class="thick">Your password has been successfully changed.</p>
+        <button class = "btn btn-success" type = "submit"><a href="{{ url_for('index') }} ">Back to Home</button></a>
+    </div>
+{% endblock %}

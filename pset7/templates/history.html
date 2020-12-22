@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table class="table table-responsive" style="90%">
+      <tr>
+        <th>Transaction At</th>
+        <th>Stock Symbol</th>
+        <th>Quantity of Shares</th>
+        <th>Price of Shares transacted at</th>
+        <th>Total Price transacted</th>
+        <th>Status</th>
+      </tr>
+      {% for history in history %}
+      <tr>
+        <td>{{ history.transaction }}</td>
+        <td>{{ history.symbol }}</td>
+        <td>{{ history.quantity }}</td>
+        <td>${{ history.price }}</td>
+        <td>{{ history.total }}</td>
+        <td>{{ history.buyorsell }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+{% endblock %}

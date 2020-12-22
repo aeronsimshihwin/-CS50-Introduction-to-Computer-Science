@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <style>
+    .thick
+    {
+    font-weight: bold;
+    }
+    </style>
+    <head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></head>
+    <h1 align="center">Welcome to C$50 Finance!</h1>
+    <h4 align="center"><span class="glyphicon glyphicon-star-empty"></span>Your Portfolio<span class="glyphicon glyphicon-star-empty"></span></h4>
+    <table class="table table-striped" style="100%">
+      <tr>
+        <th>Stock Symbol</th>
+        <th>Quantity of Shares</th>
+        <th>Current Price of Shares (per lot)</th>
+        <th>Total Value of Holding Shares</th>
+      </tr>
+      {% for stock in portfolio %}
+      <tr>
+        <td>{{ stock.symbol }}</td>
+        <td>{{ stock.quantity }}</td>
+        <td>${{ stock.price }}</td>
+        <td>${{ stock.total }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <p align="right" class="thick">Total Value of ALL Holding Stocks: {{ VALUE }}</p>
+    <p align="right" class="thick">                     Cash in hand: {{ CASH }}</p>
+    <p align="right" class="thick">                      Grand Total: {{ TOTAL }}</p>
+{% endblock %}

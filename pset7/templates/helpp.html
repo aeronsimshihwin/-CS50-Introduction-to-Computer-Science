@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Help
+{% endblock %}
+
+{% block main %}
+    <style type="text/css">
+    a { text-decoration : none; color : #000; }
+    .thick
+    {
+    font-weight: bold;
+    }
+    </style>
+    <form action="{{ url_for('helpp') }}" method="post">
+        <fieldset>
+            <h4><a href="{{ url_for('index') }}">Home <span class="glyphicon glyphicon-home"></span></a></h3>
+            <p>You will see your portfolio with the stocks you purchased, the cash you have left and your overall asset.</p>
+            <h4>Navigation Bar </h3>
+            <p>On top of Home, you will see 8 actions on the navigation bar that you may utilise in this account.</p>
+            <h4><a href="{{ url_for('quote') }}">Quote <span class="glyphicon glyphicon-usd"></span></a></h4>
+            <p>You may enter a VALID stock symbol in here to enquire its current price.</p>
+            <h4><a href="{{ url_for('buy') }}">Buy <span class="glyphicon glyphicon-plus-sign"></span></a></h4>
+            <p>You may then buy stock(s) using our "Quote" to enquire stock prices.</p>
+            <h4><a href="{{ url_for('sell') }}">Sell <span class="glyphicon glyphicon-minus-sign"></span></a></h4>
+            <p>And of course, you may sell the stock(s) you have bought whenever you deem fit.</p>
+            <h4><a href="{{ url_for('history') }}">History <span class="glyphicon glyphicon-transfer"></span></a></h4>
+            <p>To prevent short term memory from occuring, we have developed a History page for you to keep track of your transactions.</p>
+            <h4><a href="{{ url_for('helpp') }}">Help <span class="glyphicon glyphicon-question-sign"></span></a></h4>
+            <p>This, definitely, is for people who are new to this account like you and we are pleased to guide you around.</p>
+            <h4><a href="{{ url_for('topup') }}">Add Cash <span class="glyphicon glyphicon-credit-card"></span></a></h4>
+            <p>Should you not have enough cash after losing the cash you were given, you may top up here. Simply enter your credit card details!</p>
+            <h4><a href="{{ url_for('settings') }}">Account Settings <span class="glyphicon glyphicon-wrench"></span></a></h4>
+            <p>Under Account Settings, you may only change your password. Don't think about changing username, just create another account lah!</p>
+            <h4><a href="{{ url_for('logout') }}">Log Out <span class="glyphicon glyphicon-log-out"></span></a></h4>
+            <p>Duh... do you need me to explain this? Just click it once you are bored of this platform!</p>
+            <h4></h4>
+            <div class="form-group">
+                <button class="btn btn-default" type="submit">Back to Home</button>
+            </div>
+        </fieldset>
+    </form>
+{% endblock %}
