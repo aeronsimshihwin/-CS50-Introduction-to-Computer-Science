@@ -1,0 +1,43 @@
+#!/usr/bin/env python3
+
+import cs50
+import os
+import sys
+import helpers
+
+from analyzer import Analyzer
+from termcolor import colored
+
+#ensure proper usage
+if len(sys.argv) != 2:
+    sys.exit("Usage: ./tweet @username")
+
+#define user but remove @
+user=sys.argv[1].strip('@')
+
+#gets tweets; queries Twitter’s API for a user’s most recent 50 tweets
+tweets=helpers.get_user_timeline(user, 100)
+
+#checks if successful in getting tweets
+if tweets==0:
+    sys.exit('Error... Check if user is private or if username is correct...')
+    exit(1)
+
+# absolute paths to lists
+positives = os.path.join(sys.path[0], "positive-words.txt")
+negatives = os.path.join(sys.path[0], "negative-words.txt")
+
+#analyzes the sentiment of each of those tweets
+# instantiate analyzer
+analyzer = Analyzer(positives, negatives)
+
+#outputs each tweet’s score and text, colored in green if positive, red if negative, and yellow otherwise.
+# analyze word
+for tweet in tweets:
+    score = analyzer.analyze(tweet)
+    if score > 0.0:
+        print(colored(f'Tweet: {tweet}, Score: {score}.', "green"))
+    elif score < 0.0:
+        print(colored(f'Tweet: {tweet}, Score: {score}.', "red"))
+    else:
+        print(colored(f'Tweet: {tweet}, Score: {score}.', "yellow"))
